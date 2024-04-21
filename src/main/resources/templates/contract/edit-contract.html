@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit contract</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <img th:src="@{/logo.png}" alt="Logo" style="width:100px;">
+    <h1>Чистый взгляд</h1>
+</header>
+
+<main>
+    <div class="main-content">
+        <div class="sidebar"></div>
+        <div class="content">
+            <h1>Информация о договоре</h1>
+            <form th:method="PATCH" th:action="@{/contracts/{id}(id=${contract.id})}" th:object="${contract}">
+                <label>ID: </label>
+                <label th:text="'ID: ' + ${contract.id}"></label><br/>
+
+                <label>ID клиента: </label>
+                <label th:text="'Client ID: ' + ${contract.client.id}"></label><br/>
+
+                <label for="idOrderForm">ID заказ наряда:</label>
+                <input type="text" th:field="*{orderForm.id}" id="idOrderForm"/>
+                <div style="color:red" th:if="${#fields.hasErrors('orderForm.id')}" th:errors="*{orderForm.id}">Order Form ID Error</div>
+                <br/>
+
+                <label for="contractConclusionDate">Дата заключения договора:</label>
+                <input type="date" th:field="*{contractConclusionDate}" id="contractConclusionDate"/>
+                <div style="color:red" th:if="${#fields.hasErrors('contractConclusionDate')}" th:errors="*{contractConclusionDate}">Contract Conclusion Date Error</div>
+                <br/>
+
+                <div class="center-buttons">
+                    <input type="submit" value="Обновить" class="btn btn-primary"/>
+                </div>
+            </form>
+            <div class="center-buttons">
+                <form th:method="POST" th:action="@{/contracts/{id}/delete(id=${contract.id})}" style="display: inline;">
+                    <input type="submit" value="Удалить" class="btn btn-danger"/>
+                </form>
+            </div>
+        </div>
+        <div class="sidebar"></div>
+    </div>
+
+</main>
+
+</body>
+</html>

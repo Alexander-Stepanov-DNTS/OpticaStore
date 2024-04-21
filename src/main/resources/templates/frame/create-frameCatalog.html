@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Frame Page</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <img th:src="@{/logo.png}" alt="Logo" style="width:100px;">
+    <h1>Чистый взгляд</h1>
+</header>
+
+<main>
+
+    <div class="main-content">
+        <div class="sidebar"></div>
+        <div class="content">
+            <h1>Добавить новую оправу</h1>
+            <form th:method="POST" th:action="@{/frames}" th:object="${newFrame}">
+
+                <label for="name">Название:</label>
+                <input type="text" th:field="*{name}" id="name"/>
+                <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+                <br/>
+
+                <label for="price">Цена:</label>
+                <input type="text" th:field="*{price}" id="price"/>
+                <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</div>
+                <br/>
+
+                <label for="status">Статус:</label>
+                <input type="text" th:field="*{status}" id="status"/>
+                <div style="color:red" th:if="${#fields.hasErrors('status')}" th:errors="*{status}">Status Error</div>
+                <br/>
+
+                <label for="dateAdded">Дата добавления:</label>
+                <input type="date" th:field="*{dateAdded}" id="dateAdded"/>
+                <div style="color:red" th:if="${#fields.hasErrors('dateAdded')}" th:errors="*{dateAdded}">Date Added Error</div>
+                <br/>
+
+                <div class="center-buttons">
+                    <input type="submit" value="Создать" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
+        <div class="sidebar"></div>
+    </div>
+
+</main>
+
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All tables</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header>
+    <img th:src="@{/logo.png}" alt="Logo" style="width:100px;">
+    <h1>Чистый взгляд</h1>
+</header>
+
+<main>
+    <div class="main-content">
+        <div class="sidebar"></div>
+        <div class="content">
+            <h1>Существующие таблицы</h1>
+            <div class="center-buttons">
+                <a th:href="@{/clients}" class="btn btn-primary">Clients</a>
+                <a th:href="@{/clientReceptions}" class="btn btn-primary">Clients' Receptions</a>
+<!--                <a th:href="@{/contracts}" class="btn btn-primary">Contracts</a>-->
+                <a th:href="@{/documents}" class="btn btn-primary">Documents</a>
+                <a th:href="@{/frames-catalog}" class="btn btn-primary">Frames catalog</a>
+                <a th:href="@{/lenses-catalog}" class="btn btn-primary">Lenses catalog</a>
+                <a th:href="@{/order-forms}" class="btn btn-primary">Order forms</a>
+            </div>
+        </div>
+        <div class="sidebar"></div>
+    </div>
+</main>
+
+</body>
+</html>

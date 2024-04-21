@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Client</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header>
+    <img th:src="@{/logo.png}" alt="Logo" style="width:100px;">
+    <h1>Чистый взгляд</h1>
+</header>
+
+<main>
+    <div class="main-content">
+        <div class="sidebar"></div>
+        <div class="content">
+            <h1>Редактирование записи о клиенте</h1>
+            <form th:action="@{/clients/{id}(id=${client.id})}" th:object="${client}" method="post">
+                <input type="hidden" name="_method" value="patch" />
+
+                <label>ID:</label>
+                <span th:text="${client.id}"></span><br/>
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" th:field="*{lastName}" id="lastName"/>
+                <div style="color:red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</div>
+                <br/>
+
+                <label for="firstName">First Name:</label>
+                <input type="text" th:field="*{firstName}" id="firstName"/>
+                <div style="color:red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</div>
+                <br/>
+
+                <label for="middleName">Middle Name:</label>
+                <input type="text" th:field="*{middleName}" id="middleName"/>
+                <div style="color:red" th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}">Middle Name Error</div>
+                <br/>
+
+                <label for="gender">Gender:</label>
+                <select th:field="*{gender}" id="gender">
+                    <option value="M">Male</option>
+                    <option value="W">Female</option>
+                </select>
+                <div style="color:red" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Gender Error</div>
+                <br/>
+
+                <label for="phone">Phone:</label>
+                <input type="text" th:field="*{phone}" id="phone"/>
+                <div style="color:red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone Error</div>
+                <br/>
+
+                <label for="birthDate">Birth Date:</label>
+                <input type="date" th:field="*{birthDate}" id="birthDate"/>
+                <div style="color:red" th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}">Birth Date Error</div>
+                <br/>
+
+                <div class="center-buttons">
+                    <input type="submit" value="Update" class="btn btn-primary"/>
+                </div>
+            </form>
+            <div class="center-buttons">
+                <form th:action="@{/clients/{id}/delete(id=${client.id})}" method="post">
+                    <input type="submit" value="Delete" class="btn btn-danger"/>
+                </form>
+            </div>
+        </div>
+        <div class="sidebar"></div>
+    </div>
+</main>
+
+</body>
+</html>

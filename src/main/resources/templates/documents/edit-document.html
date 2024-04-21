@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Document Page</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <img th:src="@{/logo.png}" alt="Logo" style="width:100px;">
+    <h1>Чистый взгляд</h1>
+</header>
+
+<main>
+
+    <div class="main-content">
+        <div class="sidebar"></div>
+        <div class="content">
+            <h1>Информация о документе</h1>
+            <form th:method="PATCH" th:action="@{/documents/{id}(id=${document.id})}" th:object="${document}">
+                <label>ID: </label> <label th:text="'ID: ' + ${document.id}"></label><br/>
+                <label for="clientId">Клиент:</label>
+                <select id="clientId" th:field="*{clientId}">
+                    <option th:text="${client.lastName} + ' ' + ${client.firstName} + ' ' + ${client.middleName}" th:value="${client.id}">>--- Выберите клиента ---</option>
+                    <option th:each="clientt : ${clients}"
+                            th:value="${clientt.id}"
+                            th:text="${clientt.lastName} + ' ' + ${clientt.firstName} + ' ' + ${clientt.middleName}">
+                    </option>
+                </select>
+                <!--                <div style="color:red" th:if="${#fields.hasErrors('client')}" th:errors="*{client.id}">Client Selection Error</div>-->
+                <br/>
+                <label for="docType">Тип документа:</label>
+                <select id="docType" th:field="*{docType}">
+                    <option value="PASSPORTRF">Паспорт РФ</option>
+                    <option value="INTPASSPORT">Заграничный паспорт</option>
+                    <option value="RESIDENCE">Вид на жительство</option>
+                </select>
+                <div style="color:red" th:if="${#fields.hasErrors('docType')}" th:errors="*{docType}">Document Type Error</div>
+                <br/>
+
+                <label for="series">Серия:</label>
+                <input type="text" th:field="*{series}" id="series"/>
+                <div style="color:red" th:if="${#fields.hasErrors('series')}" th:errors="*{series}">Series Error</div>
+                <br/>
+
+                <label for="number">Номер:</label>
+                <input type="text" th:field="*{number}" id="number"/>
+                <div style="color:red" th:if="${#fields.hasErrors('number')}" th:errors="*{number}">Number Error</div>
+                <br/>
+
+                <div class="center-buttons">
+                    <input type="submit" value="Обновить" class="btn btn-primary"/>
+                </div>
+            </form>
+            <div class="center-buttons">
+                <form th:method="POST" th:action="@{/documents/{id}/delete(id=${document.clientId})}" style="display: inline;">
+                    <input type="submit" value="Удалить" class="btn btn-danger"/>
+                </form>
+            </div>
+        </div>
+        <div class="sidebar"></div>
+    </div>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Table Page</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <img th:src="@{/logo.png}" alt="Logo" style="width:100px;">
+    <h1>Чистый взгляд</h1>
+</header>
+
+<main>
+
+    <div class="main-content">
+        <div class="sidebar"></div>
+        <div class="content">
+            <h1>Каталог линз</h1>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Date Added</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="lens : ${lenses}">
+                    <td th:text="${lens.id}"></td>
+                    <td th:text="${lens.name}"></td>
+                    <td th:text="${lens.price}"></td>
+                    <td th:text="${lens.status}"></td>
+                    <td th:text="${#dates.format(lens.dateAdded, 'dd.MM.yyyy')}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/lenses/add}">Add new record</a>
+        </div>
+        <div class="sidebar"></div>
+    </div>
+
+</main>
+
+</body>
+</html>

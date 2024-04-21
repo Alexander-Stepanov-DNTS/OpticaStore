@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Table Page</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!--<link rel="stylesheet" type="text/css" href="../templates/css/style.css" th:href="@{/css/style.css}"> -->
+</head>
+<body>
+
+<header>
+    <img th:src="@{/logo.png}" alt="Logo" style="width:100px;">
+    <h1>Чистый взгляд</h1>
+</header>
+
+<main>
+
+    <div class="main-content">
+        <div class="sidebar"></div>
+        <div class="content">
+            <h1>Заказы наряды</h1>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Frame ID</th>
+                    <th>Lens ID</th>
+                    <th>Order Date</th>
+                    <th>Description of Required Works</th>
+                    <th>Client Reception ID</th>
+                    <!-- <th>Reception Date</th> -->
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="orderForm : ${orderForms}">
+                    <td th:text="${orderForm.id}"></td>
+                    <td th:text="${orderForm.frame.id}"></td>
+                    <td th:text="${orderForm.lens.id}"></td>
+                    <td th:text="${#dates.format(orderForm.date, 'dd.MM.yyyy')}"></td>
+                    <td th:text="${orderForm.descriptionOfRequiredWorks}"></td>
+                    <td th:text="${orderForm.clientReception.id}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/order-forms/add}">Add new record</a> <!-- Изменили ссылку здесь -->
+        </div>
+        <div class="sidebar"></div>
+    </div>
+
+</main>
+
+</body>
+</html>
+

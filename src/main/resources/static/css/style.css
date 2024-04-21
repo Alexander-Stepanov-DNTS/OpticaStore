@@ -1,0 +1,192 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+header {
+    /*background-color: #007bff;*/
+    background-color: #0099cc;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+header img {
+    width: 150px;
+    height: auto;
+    margin-right: 10px;
+    margin-left: 20px; /* Отступ слева */
+    padding: 5px; /* Отступ вокруг логотипа */
+    border-radius: 5px; /* Скругление углов */
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.sidebar {
+    flex: 1;
+}
+
+.content {
+    flex: 8;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content h2 {
+    margin-bottom: 20px;
+}
+
+.content a {
+    display: block;
+    background-color: #0099cc;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.content a:hover {
+    background-color: #0077b3;
+}
+
+.content button {
+    display: block;
+    background-color: #0099cc;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.content button:hover {
+    background-color: #0077b3;
+}
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: black;
+    /*text-transform: uppercase;*/
+    letter-spacing: 2px;
+}
+
+/*Ниже стиль для таблицы*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+table thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+table thead th {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+table tbody td {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+table tbody td a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+table tbody td a:hover {
+    text-decoration: underline;
+}
+
+/*Ниже Кнопки обновить и удалить запись*/
+.btn {
+    display: inline-block;
+    padding: 10px 20px; /* Increase padding for larger buttons */
+    margin-bottom: 0;
+    font-size: 16px; /* Increase font size for larger buttons */
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    user-select: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger.active,
+.open > .dropdown-toggle.btn-danger {
+    color: #fff;
+    background-color: #c9302c;
+    border-color: #ac2925;
+}
+
+.center-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem; /* Add some top margin if needed */
+}

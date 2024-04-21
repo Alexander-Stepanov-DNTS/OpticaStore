@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ошибка входа</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .error-container {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .error-container h2 {
+      margin-bottom: 20px;
+      color: #333333;
+    }
+
+    .error-container p {
+      margin-bottom: 20px;
+      color: #ff0000;
+    }
+
+    .error-container button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #ffffff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .error-container button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+<div class="error-container">
+  <h2>Ошибка входа</h2>
+  <p>Введенные логин или пароль неверны. Пожалуйста, попробуйте снова.</p>
+  <button onclick="window.history.back()">Вернуться назад</button>
+</div>
+</body>
+</html>

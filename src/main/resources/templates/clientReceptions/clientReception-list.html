@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Client Reception List</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header>
+  <img th:src="@{/logo.png}" alt="Logo" style="width:100px;">
+  <h1>Чистый взгляд - Приемы Клиентов</h1>
+</header>
+
+<main>
+  <div class="main-content">
+    <div class="sidebar"></div>
+    <div class="content">
+      <h1>Приемы</h1>
+      <table>
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date Added</th>
+          <th>Left Eye Exam Results</th>
+          <th>Right Eye Exam Results</th>
+          <th>Prescription for Right Lens</th>
+          <th>Prescription for Left Lens</th>
+          <th>Client ID</th>
+          <th>Order Form ID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="reception : ${clientReceptions}">
+          <td th:text="${reception.getId()} ?: '-'"></td>
+          <td th:text="${#dates.format(reception.dateAdded, 'dd-MM-yyyy')} ?: '-'"></td>
+          <td th:text="${reception.leftEyeExaminationResults} ?: '-'"></td>
+          <td th:text="${reception.rightEyeExaminationResults} ?: '-'"></td>
+          <td th:text="${reception.prescriptionForRightLens} ?: '-'"></td>
+          <td th:text="${reception.prescriptionForLeftLens} ?: '-'"></td>
+          <td th:text="${reception.clientId} ?: '-'"></td>
+          <td th:text="${reception.orderFormId} ?: '-'"></td>
+        </tr>
+        </tbody>
+      </table>
+      <a href="#" th:href="@{/clientReceptions/add}">Add new reception</a>
+    </div>
+    <div class="sidebar"></div>
+  </div>
+</main>
+
+</body>
+</html>

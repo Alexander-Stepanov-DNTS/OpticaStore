@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create new client</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <img th:src="@{/logo.png}" alt="Logo" style="width:100px;">
+    <h1>Чистый взгляд</h1>
+</header>
+
+<main>
+    <div class="main-content">
+    <div class="sidebar"></div>
+    <div class="content">
+        <h1>Создание новой записи о клиенте</h1>
+
+        <form th:method="POST" th:action="@{/clients}" th:object="${client}">
+
+            <label for="lastName">Фамилия:</label>
+            <input type="text" th:field="*{lastName}" id="lastName"/>
+            <div style="color:red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</div>
+            <br/>
+
+            <label for="firstName">Имя:</label>
+            <input type="text" th:field="*{firstName}" id="firstName"/>
+            <div style="color:red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</div>
+            <br/>
+
+            <label for="middleName">Отчество:</label>
+            <input type="text" th:field="*{middleName}" id="middleName"/>
+            <div style="color:red" th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}">Middle Name Error</div>
+            <br/>
+
+            <label for="gender">Пол:</label>
+            <input type="text" th:field="*{gender}" id="gender"/>
+            <div style="color:red" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Gender Error</div>
+            <br/>
+
+            <label for="phone">Телефон:</label>
+            <input type="text" th:field="*{phone}" id="phone"/>
+            <div style="color:red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone Error</div>
+            <br/>
+
+            <label for="birthDate">Дата рождения:</label>
+            <input type="date" th:field="*{birthDate}" id="birthDate"/>
+            <div style="color:red" th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}">Birth Date Error</div>
+            <br/>
+
+            <div class="center-buttons">
+                <input type="submit" value="Создать" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+    <div class="sidebar"></div>
+</div>
+
+</main>
+
+</body>
+</html>

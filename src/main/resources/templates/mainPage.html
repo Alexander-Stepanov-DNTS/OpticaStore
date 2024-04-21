@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Menu</title>
+    <link rel="stylesheet" type="text/css" href="../templates/css/style.css">
+
+</head>
+<body>
+<header>
+    <img th:src="@{/logo.png}" alt="Logo" style="width:100px;">
+    <h1>Чистый взгляд</h1>
+</header>
+<div class="main-content">
+    <div class="sidebar"></div>
+    <div class="content">
+        <h2>Главное меню</h2>
+        <div th:each="table : ${tables}">
+            <a th:href="@{/table/{id}(id=${table.id})}" th:text="${table.name}"></a>
+        </div>
+        <!-- <button type="button" onclick="location.href='/sql'">Кастомный SQL запрос</button> -->
+        <button type="button" onclick="location.href='/logout'">Выйти</button>
+    </div>
+    <div class="sidebar"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create new client reception</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <img th:src="@{/logo.png}" alt="Logo" style="width:100px;">
+    <h1>Чистый взгляд</h1>
+</header>
+
+<main>
+    <div class="main-content">
+    <div class="sidebar"></div>
+    <div class="content"> <h1>Создание новой записи о приёме</h1> <form th:method="POST" th:action="@{/client-receptions}" th:object="${newClientReception}">
+
+<label for="dateAdded">Дата приёма:</label>
+<input type="date" th:field="*{dateAdded}" id="dateAdded"/>
+<div style="color:red" th:if="${#fields.hasErrors('dateAdded')}" th:errors="*{dateAdded}">Reception Date Error</div> <br/>
+
+<label for="leftEyeExaminationResults">Результаты осмотра лев.глаза:</label>
+<input type="text" th:field="*{leftEyeExaminationResults}" id="leftEyeExaminationResults"/>
+<div style="color:red" th:if="${#fields.hasErrors('leftEyeExaminationResults')}" th:errors="*{leftEyeExaminationResults}">Left Eye Examination Results Error</div> <br/>
+
+<label for="rightEyeExaminationResults">Результаты осмотра прав.глаза:</label>
+<input type="text" th:field="*{rightEyeExaminationResults}" id="rightEyeExaminationResults"/>
+<div style="color:red" th:if="${#fields.hasErrors('rightEyeExaminationResults')}" th:errors="*{rightEyeExaminationResults}">Right Eye Examination Results Error</div> <br/>
+
+<label for="prescriptionForRightLens">Предписание для правой линзы:</label>
+<input type="text" th:field="*{prescriptionForRightLens}" id="prescriptionForRightLens"/>
+<div style="color:red" th:if="${#fields.hasErrors('prescriptionForRightLens')}" th:errors="*{prescriptionForRightLens}">Prescription for Right Lens Error</div> <br/>
+
+<label for="prescriptionForLeftLens">Предписание для левой линзы:</label>
+<input type="text" th:field="*{prescriptionForLeftLens}" id="prescriptionForLeftLens"/>
+<div style="color:red" th:if="${#fields.hasErrors('prescriptionForLeftLens')}" th:errors="*{prescriptionForLeftLens}">Prescription for Left Lens Error</div> <br/> 
+<div class="center-buttons"> <input type="submit" value="Создать" class="btn btn-primary"/> </div> </form> </div>
+    <div class="sidebar"></div>
+</div>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Document Page</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header>
+    <img th:src="@{/logo.png}" alt="Logo" style="width:100px;">
+    <h1>Чистый взгляд</h1>
+</header>
+
+<main>
+    <div class="main-content">
+        <div class="sidebar"></div>
+        <div class="content">
+            <h1>Создать запись о новом документе</h1>
+            <form th:action="@{/documents}" th:object="${document}" method="post">
+
+                <label for="clientId">Клиент:</label>
+                <select id="clientId" th:field="*{clientId}">
+                    <option value="">--- Выберите клиента ---</option>
+                    <option th:each="client : ${clients}"
+                            th:value="${client.id}"
+                            th:text="${client.lastName} + ' ' + ${client.firstName} + ' ' + ${client.middleName}">
+                    </option>
+                </select>
+<!--                <div style="color:red" th:if="${#fields.hasErrors('client')}" th:errors="*{client.id}">Client Selection Error</div>-->
+                <br/>
+
+                <label for="docType">Тип документа:</label>
+                <select id="docType" th:field="*{docType}">
+                    <option value="PASSPORTRF">Паспорт РФ</option>
+                    <option value="INTPASSPORT">Заграничный паспорт</option>
+                    <option value="RESIDENCE">Вид на жительство</option>
+                </select>
+                <div style="color:red" th:if="${#fields.hasErrors('docType')}" th:errors="*{docType}">Document Type Error</div>
+                <br/>
+
+                <label for="series">Серия:</label>
+                <input type="text" th:field="*{series}" id="series"/>
+                <div style="color:red" th:if="${#fields.hasErrors('series')}" th:errors="*{series}">Series Error</div>
+                <br/>
+
+                <label for="number">Номер:</label>
+                <input type="text" th:field="*{number}" id="number"/>
+                <div style="color:red" th:if="${#fields.hasErrors('number')}" th:errors="*{number}">Number Error</div>
+                <br/>
+
+                <div class="center-buttons">
+                    <input type="submit" value="Создать" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
+        <div class="sidebar"></div>
+    </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Order Form Page</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <img th:src="@{/logo.png}" alt="Logo" style="width:100px;">
+    <h1>Чистый взгляд</h1>
+</header>
+
+<main>
+
+    <div class="main-content">
+        <div class="sidebar"></div>
+        <div class="content">
+            <h1>Добавить новый заказ наряд</h1>
+            <form th:method="POST" th:action="@{/order-forms}" th:object="${newOrderForm}">
+
+                <label for="frame.id">ID оправы:</label>
+                <input type="text" th:field="*{frame.id}" id="frame.id"/>
+                <div style="color:red" th:if="${#fields.hasErrors('frame.id')}" th:errors="*{frame.id}">Frame ID Error</div>
+                <br/>
+
+                <label for="lens.id">ID Линз:</label>
+                <input type="text" th:field="*{lens.id}" id="lens.id"/>
+                <div style="color:red" th:if="${#fields.hasErrors('lens.id')}" th:errors="*{lens.id}">Lens ID Error</div>
+                <br/>
+
+                <label for="service.id">ID Услуги:</label>
+                <input type="text" th:field="*{service.id}" id="service.id"/>
+                <div style="color:red" th:if="${#fields.hasErrors('service.id')}" th:errors="*{service.id}">Service ID Error</div>
+                <br/>
+
+                <label for="date">Дата:</label>
+                <input type="date" th:field="*{date}" id="date"/>
+                <div style="color:red" th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Date Error</div>
+                <br/>
+
+                <label for="descriptionOfRequiredWorks">Описание работ мастеру:</label>
+                <input type="text" th:field="*{descriptionOfRequiredWorks}" id="descriptionOfRequiredWorks"/>
+                <div style="color:red" th:if="${#fields.hasErrors('descriptionOfRequiredWorks')}" th:errors="*{descriptionOfRequiredWorks}">Description of Required Works Error</div>
+                <br/>
+
+                <label for="clientReception.id">ID приема клиента:</label>
+                <input type="text" th:field="*{clientReception.id}" id="clientReception.id"/>
+                <div style="color:red" th:if="${#fields.hasErrors('clientReception.id')}" th:errors="*{clientReception.id}">Client Reception ID Error</div>
+                <br/>
+
+                <label for="clientReception.receptionDate">Дата приема клиента:</label>
+                <input type="date" th:field="*{clientReception.receptionDate}" id="clientReception.receptionDate"/>
+                <div style="color:red" th:if="${#fields.hasErrors('clientReception.receptionDate')}" th:errors="*{clientReception.receptionDate}">Reception Date Error</div>
+                <br/>
+
+                <div class="center-buttons">
+                    <input type="submit" value="Add Order Form" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
+        <div class="sidebar"></div>
+    </div>
+
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Table Page</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../templates/css/style.css">
+    <!--<link rel="stylesheet" type="text/css" href="../templates/css/style.css" th:href="@{/css/style.css}"> -->
+</head>
+<body>
+
+<header>
+    <img src="../static/logo.png" alt="Logo">
+    <h1>Чистый взгляд</h1>
+</header>
+
+<main>
+
+    <div class="main-content">
+        <div class="sidebar"></div>
+        <div class="content">
+            <h1>Table Name</h1>
+
+            <table>
+                <thead>
+                <tr>
+                    <!-- Add table header columns here -->
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Add table rows here -->
+                </tbody>
+            </table>
+            <a th:href="@{/table-name/add}">Add new record</a>
+        </div>
+        <div class="sidebar"></div>
+    </div>
+
+</main>
+
+</body>
+</html>

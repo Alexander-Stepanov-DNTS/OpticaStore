@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create contract</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <img th:src="@{/logo.png}" alt="Logo" style="width:100px;">
+    <h1>Чистый взгляд</h1>
+</header>
+
+<main>
+    <div class="main-content">
+        <div class="sidebar"></div>
+        <div class="content">
+            <h1>Создать запись о договоре</h1>
+            <form th:method="POST" th:action="@{/contracts}" th:object="${newContract}">
+                <label for="orderFormId">ID Заказ наряда:</label>
+                <input type="text" th:field="*{orderFormId}" id="orderFormId"/>
+                <div style="color:red" th:if="${#fields.hasErrors('orderFormId')}" th:errors="*{orderFormId}">Order Form ID Error</div>
+                <br/>
+                <label for="contractConclusionDate">Дата заключения договора:</label>
+                <input type="date" th:field="*{contractConclusionDate}" id="contractConclusionDate"/>
+                <div style="color:red" th:if="${#fields.hasErrors('contractConclusionDate')}" th:errors="*{contractConclusionDate}">Contract Conclusion Date Error</div>
+                <br/>
+                <div class="center-buttons">
+                    <input type="submit" value="Create" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
+        <div class="sidebar"></div>
+    </div>
+
+</main>
+
+</body>
+</html>

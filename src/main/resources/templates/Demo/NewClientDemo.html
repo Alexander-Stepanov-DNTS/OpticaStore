@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Создание новой записи о клиенте</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  <img src="../../static/logo.png" alt="Logo">
+  <h1>Чистый взгляд</h1>
+</header>
+
+<main>
+  <div class="main-content">
+    <div class="sidebar"></div>
+    <div class="content">
+      <h1>Создание новой записи о клиенте</h1>
+      <form method="POST" action="/clients">
+        <label for="lastName">Фамилия:</label>
+        <input type="text" id="lastName" name="lastName" value="Ivanov"/><br/>
+
+        <label for="firstName">Имя:</label>
+        <input type="text" id="firstName" name="firstName" value="Ivan"/><br/>
+
+        <label for="middleName">Отчество:</label>
+        <input type="text" id="middleName" name="middleName" value="Ivanovich"/><br/>
+
+        <label for="gender">Пол:</label>
+        <input type="text" id="gender" name="gender" value="Male"/><br/>
+
+        <label for="phone">Телефон:</label>
+        <input type="text" id="phone" name="phone" value="1234567890"/><br/>
+
+        <label for="birthDate">Дата рождения:</label>
+        <input type="date" id="birthDate" name="birthDate" value="1990-01-01"/><br/>
+
+        <div class="center-buttons">
+          <input type="submit" value="Создать" class="btn btn-primary"/>
+        </div>
+      </form>
+    </div>
+    <div class="sidebar"></div>
+  </div>
+</main>
+
+</body>
+</html>
