@@ -27,20 +27,13 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(registry -> { ///clientReceptions
                     //registry.requestMatchers("/mainPage/**").hasAnyRole("ADMIN", "DOCTOR", "DOCTOR");
                     registry.requestMatchers("/mainPage/**").permitAll();
+                    registry.requestMatchers("/clients/**").hasAnyRole("ADMIN", "DOCTOR", "MANAGER");
+                    registry.requestMatchers("/documents/**").hasAnyRole("ADMIN", "MANAGER");
+                    registry.requestMatchers("/contracts/**").hasAnyRole("ADMIN", "MANAGER");
                     registry.requestMatchers("/clientReceptions/**").hasAnyRole("ADMIN", "DOCTOR");
-//                    registry.requestMatchers("/hotel_management").hasAnyRole("MANAGER","ADMIN","HOTEL_MANAGEMENT_SERVICE");
-//                    registry.requestMatchers("/hotel_management/personnel/**").hasAnyRole("MANAGER","ADMIN");
-//                    registry.requestMatchers("/hotel_management/room_reservations/**").hasRole("MANAGER");
-//                    registry.requestMatchers("/hotel_management/clients_and_contracts/**").hasRole("MANAGER");
-//                    registry.requestMatchers("/all_services").hasAnyRole("MANAGER","ADMIN");
-//                    registry.requestMatchers(HttpMethod.GET,"/hotel_management/cleaning_and_technical_inspection_log/**").hasAnyRole("MANAGER",
-//
-//                            "ADMIN","HOTEL_MANAGEMENT_SERVICE");
-//                    registry.requestMatchers(HttpMethod.POST,"/hotel_management/cleaning_and_technical_inspection_log/**").hasAnyRole("ADMIN",
-//                            "HOTEL_MANAGEMENT_SERVICE");
-//                    registry.requestMatchers(HttpMethod.PATCH,"/hotel_management/cleaning_and_technical_inspection_log/**").hasRole("ADMIN");
-//                    registry.requestMatchers(HttpMethod.DELETE,"/hotel_management/cleaning_and_technical_inspection_log/**").hasRole("ADMIN");
-
+                    registry.requestMatchers("/order-forms/**").hasAnyRole("ADMIN", "DOCTOR", "MANAGER");
+                    registry.requestMatchers("/lenses-catalog/**").hasAnyRole("ADMIN", "DOCTOR", "MANAGER");
+                    registry.requestMatchers("/frames-catalog/**").hasAnyRole("ADMIN", "DOCTOR", "MANAGER");
                     registry.anyRequest().authenticated();
                 })
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
